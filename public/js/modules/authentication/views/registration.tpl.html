@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-12 ">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Форма регистрации
+                    </h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-sm-12 b-r">
+                            <form action="/" role="form" method="POST">
+                                <div class="form-group"><label>Имя</label>
+                                    <input placeholder="Фио" value="" class="form-control" type="text" ng-model="user.name">
+                                </div>
+                                <div class="form-group"><label>Email</label>
+                                    <input placeholder="Enter email" value="" class="form-control" type="email" ng-model="user.email">
+                                </div>
+                                <div class="form-group"><label>Password</label>
+                                    <input placeholder="Password" class="form-control" type="password" ng-model="user.password"></div>
+                                <div>
+                                    <button class="btn btn-sm btn-primary pull-right m-t-n-xs"
+                                            type="button" ng-click="register(user)">
+                                        <strong>Зарегистрировать</strong></button>
+                                    <a ng-click="goTo('/')">Форма входа</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="ibox-title">
+    <h5>Видеозаписи</h5>
+</div>
+<div class="ibox-content">
+    <div>
+        <!--<h4>Свободное пространство</h4>-->
+        <!--<uib-progressbar max="vm.max" value="vm.dynamic"><span style="color:white; white-space:nowrap;">{{vm.dynamic}} / {{vm.max}} MB.</span>-->
+        <!--</uib-progressbar>-->
+    </div>
+    <uib-accordion close-others="oneAtATime">
+        <div uib-accordion-group class="panel-default" ng-repeat="camera in vm.cameras" heading="{{camera.name}}">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Size</th>
+                    <th>Download Link</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="video in camera.files">
+                    <td>{{$index + 1}}</td>
+                    <td>{{video.size}}</td>
+                    <td><a href="{{video.link}}">Download</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </uib-accordion>
+</div>
