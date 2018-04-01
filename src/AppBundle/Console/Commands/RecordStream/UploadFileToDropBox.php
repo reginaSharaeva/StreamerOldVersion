@@ -26,6 +26,21 @@ class UploadFileToDropBox extends Command
      */
     protected $description = 'upload file to tropbox';
 
+    protected function configure()
+    {
+        $this
+            // the name of the command (the part after "bin/console")
+            ->setName('app:create-user')
+
+            // the short description shown while running "php bin/console list"
+            ->setDescription('Creates a new user.')
+
+            // the full command description shown when running the command with
+            // the "--help" option
+            ->setHelp('This command allows you to create a user...')
+        ;
+    }
+
     /**
      * Create a new command instance.
      *

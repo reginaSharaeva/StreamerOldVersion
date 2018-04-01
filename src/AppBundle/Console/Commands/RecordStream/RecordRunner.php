@@ -4,41 +4,24 @@ namespace App\Console\Commands\RecordStream;
 
 use App\Camera;
 use Artisan;
-use Illuminate\Console\Command;
 use Symfony\Component\Process\Process;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+
 
 class RecordRunner extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $signature = 'run:record {camId}';
-
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'run record stream to cam';
-
-    /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function configure()
     {
-        parent::__construct();
+        $this
+            // the name of the command (the part after "bin/console")
+            ->setName('run:record')
+            // configure an argument
+            ->addArgument('camId', InputArgument::REQUIRED, 'The id of the camera.')
+            // the short description shown while running "php bin/console list"
+            ->setDescription('run record stream to cam');
     }
-
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
-
 
     function ping($url = NULL)
     {
@@ -63,9 +46,9 @@ class RecordRunner extends Command
         return $PID;
     }
 
-    public function handle()
+    public function execute(InputInterface $input, OutputInterface $output)
     {
-        $cameraId = $this->argument('camId');
+        $cameraId = $input->getArgument('camId');
         $camera = Camera::where("id", "=", $cameraId)->get()->first();
         $user = $camera->user()->get()->first();
 
@@ -77,21 +60,20 @@ class RecordRunner extends Command
         $fileWitPathWithName = $pathToCopyVideo . $nameFileDate . $fileExpansion;
 
         if ($this->ping($camera->link) == true) {
-
-            $this->info("запись началась");
+            $output->writeln('<info>запись началась</info>');
             shell_exec("/usr/bin/ffmpeg -i '" . $camera->link . "' -t 00:00:05 " . $fileWitPathWithName . "  > /var/www/html/videoCam/rtmp.log10.txt 2>&1");
-            $this->info("запись кочилась");
+            $output->writeln('<info>запись кочилась</info>');
 
-            $this->info("загрузка началась");
+            $output->writeln('<info>загрузка началась</info>');
             $command = "/usr/bin/php " . base_path() . "/artisan dropbox:upload " . $fileWitPathWithName . " --camera " . $cameraId . " --user " . $user->id;
             $this->run_in_background($command);
-            $this->info("загрузка закончилась");
+            $output->writeln('<info>загрузка закончилась</info>');
 
             $this->run_in_background('/usr/bin/php ' . base_path() . '/artisan run:record ' . $camera->id);
 
 
         } else {
-            $this->error("что то пошло не так и запись не удалась");
+            $output->writeln('<error>что то пошло не так и запись не удалась</error>');
         }
     }
 }

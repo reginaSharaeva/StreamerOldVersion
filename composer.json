@@ -70,12 +70,12 @@
         ],
         "post-install-cmd": [
             "@symfony-scripts",
-            "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::postInstall",
             "sudo php artisan optimize"
         ],
         "post-update-cmd": [
             "@symfony-scripts",
-            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::postUpdate",
             "sudo php artisan optimize"
         ],
     },

@@ -9,8 +9,8 @@ class TemplateMaker
     private $modelName;
     private $patternName;
     private $nameSpace;
-    private $interfaceTemplatePath = "app/Console/Commands/Makers/Util/templates/interface.txt";
-    private $classTemplatePath = "app/Console/Commands/Makers/Util/templates/class.txt";
+    private $interfaceTemplatePath = "src/AppBundle/Console/Commands/Makers/Util/templates/interface.txt";
+    private $classTemplatePath = "src/AppBundle/Console/Commands/Makers/Util/templates/class.txt";
 
     public function __construct(string $patternName, string $modelName, string $nameSpace = "")
     {
