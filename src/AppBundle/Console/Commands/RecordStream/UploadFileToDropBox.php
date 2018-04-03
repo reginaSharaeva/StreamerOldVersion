@@ -12,61 +12,32 @@ use App\File as DbFile;
 
 class UploadFileToDropBox extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $signature = 'dropbox:upload {filePath} {--camera=} {--user=}';
-
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'upload file to tropbox';
-
+   
     protected function configure()
     {
         $this
             // the name of the command (the part after "bin/console")
-            ->setName('app:create-user')
-
+            ->setName('dropbox:upload')
+            // configure an argument
+            ->addArgument('filePath', InputArgument::REQUIRED, 'The path of file.')
+            // configure an argument
+            ->addArgument('camera', InputArgument::OPTIONAL, 'The id of the camera.')
+            // configure an argument
+            ->addArgument('user', InputArgument::OPTIONAL, 'The id of the user.')
             // the short description shown while running "php bin/console list"
-            ->setDescription('Creates a new user.')
-
-            // the full command description shown when running the command with
-            // the "--help" option
-            ->setHelp('This command allows you to create a user...')
-        ;
+            ->setDescription('upload file to tropbox');
     }
 
-    /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function execute(InputInterface $input, OutputInterface $output)
     {
-        parent::__construct();
-    }
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
-
-
-    public function handle()
-    {
-        $this->info("начало загрузки файла");
-        $path = $this->argument('filePath');
-        $cameraId = $this->option('camera');
-        $userId = $this->option('user');
+        $output->writeln('<info>начало загрузки файла</info>');
+        $path = $input->getArgument('filePath');
+        $cameraId = $input->getArgument('camera');
+        $userId = $input->getArgument('user');
 
         if (empty($path) || empty($userId) || empty($cameraId)) {
-            $this->error("ошибка не переданы параметры для загрузки фала");
+            $output->writeln('<error>ошибка не переданы параметры для загрузки фала</error>');
             exit(0);
         }
         $fileName = explode("/", $path)[sizeof(explode("/", $path)) - 1];
