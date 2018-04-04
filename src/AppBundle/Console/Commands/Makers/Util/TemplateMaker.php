@@ -40,12 +40,12 @@ class TemplateMaker
         return $template;
     }
 
-    public function getInterfaceTempalte()
+    public function getInterfaceTemplate()
     {
         return $this->getTemplate($this->interfaceTemplatePath);
     }
 
-    public function getClassTempalte()
+    public function getClassTemplate()
     {
         return $this->getTemplate($this->classTemplatePath);
     }

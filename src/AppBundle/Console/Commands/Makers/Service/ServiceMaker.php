@@ -24,8 +24,8 @@ class ServiceMaker extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $modelName = $input->getArgument('modelName');
-        $patternMakert = new PatternMaker("/var/www/html/videoCam/app/");
-        $result = $patternMakert->MakePatternByName("Service", $modelName);
+        $patternMaker = new PatternMaker("/var/www/html/videoCam/app/");
+        $result = $patternMaker->MakePatternByName("Service", $modelName);
         if ($result["type"] == "error") {
             $output->writeln('<error>{$result["message"]}</error>');
         } else {
