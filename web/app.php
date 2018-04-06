@@ -19,3 +19,13 @@ $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 $response->send();
 $kernel->terminate($request, $response);
+
+
+
+
+// https://kpfu.ru/student_diplom/10.160.178.20_5720874_F_Grishina_A.S._303.pdf
+// https://en.wikipedia.org/wiki/Distributed_file_system_for_cloud
+// http://www.chinacloud.cn/upload/2012-05/12051808088529.pdf
+// https://www.hse.ru/pubs/share/direct/document/164838318
+// https://eniac2017.files.wordpress.com/2017/03/distributed-and-cloud-computing.pdf
+// http://elbib.elpub.ru/jour/article/view/15
