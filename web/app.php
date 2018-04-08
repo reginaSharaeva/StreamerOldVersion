@@ -29,3 +29,7 @@ $kernel->terminate($request, $response);
 // https://www.hse.ru/pubs/share/direct/document/164838318
 // https://eniac2017.files.wordpress.com/2017/03/distributed-and-cloud-computing.pdf
 // http://elbib.elpub.ru/jour/article/view/15
+
+
+// Вы подключены к базе данных "postgres" как пользователь "postgres" через сокет в "/var/run/postgresql", порт "5432".
+
