@@ -3,7 +3,7 @@
 namespace App\Console\Commands\RecordStream;
 
 use App\Camera;
-use Artisan;
+//use Artisan;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

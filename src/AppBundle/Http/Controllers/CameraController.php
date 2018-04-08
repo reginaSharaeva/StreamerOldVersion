@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Camera;
 use App\Service\CameraService;
-use Artisan;
+//use Artisan;
 use Response;
 use Request;
 use Auth;

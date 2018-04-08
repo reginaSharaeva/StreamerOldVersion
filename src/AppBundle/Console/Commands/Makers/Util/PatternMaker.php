@@ -3,7 +3,10 @@ namespace App\Console\Commands\Makers\Util;
 
 
 use App\Console\Commands\Makers\Util\TemplateMaker;
-use Artisan;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Output\BufferedOutput;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 class PatternMaker
 {
@@ -16,16 +19,18 @@ class PatternMaker
         $this->pathToApp = $pathToApp;
     }
 
+    public void set
 
-    public function MakePatternByName(string $name, string $modelName):array
+
+    public function MakePatternByName(string $name, string $modelName)
     {
 
         $templateMaker = new TemplateMaker($name, $modelName, "App");
 
         $interfaceFileName = $templateMaker->getInterfaceFileName();
         $classFileName = $templateMaker->getClassFileName();
-        $classTemplate = $templateMaker->getClassTempalte();
-        $interfaceTemplate = $templateMaker->getInterfaceTempalte();
+        $classTemplate = $templateMaker->getClassTemplate();
+        $interfaceTemplate = $templateMaker->getInterfaceTemplate();
 
         $pathToClassfile = $this->pathToApp . $name . "/Impl/" . $classFileName;
         $pathToInterfacefile = $this->pathToApp . $name . "/" . $interfaceFileName;
@@ -63,7 +68,22 @@ class PatternMaker
             ];
         }
 
-        Artisan::call('make:provider', ["name" => $modelName . $name . "Provider"]);
+
+        $application = new Application($kernel);
+        $application->setAutoExit(false);
+
+        $input = new ArrayInput(array(
+           'command' => 'make:provider',
+           // (optional) define the value of command arguments
+           'name' => $modelName . "Provider"
+        ));
+
+        // You can use NullOutput() if you don't need the output
+        $output = new BufferedOutput();
+        $application->run($input, $output);
+
+        // return the output, don't use if you used NullOutput()
+        $content = $output->fetch();
 
         return [
             "message" => "Паттерн создан",

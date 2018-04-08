@@ -93,6 +93,9 @@
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
         },
-        "branch-alias": null
+        "branch-alias": null,
+        "symfony": {
+            "allow-contrib": "true"
+        }
     }
 }

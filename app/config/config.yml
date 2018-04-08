@@ -65,9 +65,9 @@ doctrine:
         auto_mapping: true
 
     types:
-        datetime: AppBundle\DoctrineExtensions\DBAL\Types\UTCDateTimeType
-        datetimetz: AppBundle\DoctrineExtensions\DBAL\Types\UTCDateTimeType
-        time: AppBundle\DoctrineExtensions\DBAL\Types\UTCTimeType    
+        datetime: App\DoctrineExtensions\DBAL\Types\UTCDateTimeType
+        datetimetz: App\DoctrineExtensions\DBAL\Types\UTCDateTimeType
+        time: App\DoctrineExtensions\DBAL\Types\UTCTimeType    
 
 # Swiftmailer Configuration
 swiftmailer:
