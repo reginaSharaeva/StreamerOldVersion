@@ -1,8 +1,9 @@
 <?php
 namespace App\Http\Controllers;
-use App\Http\Controllers\Controller;
-//use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 class LoginController extends Controller
 {
     /*
@@ -15,7 +16,7 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-    use AuthenticatesUsers;
+   // use AuthenticatesUsers;
 
     public function showLoginForm(){
         return view("auth");

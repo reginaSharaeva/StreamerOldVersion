@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Camera;
 use App\Service\CameraService;
-//use Artisan;
-use Response;
-use Request;
 use Auth;
 use Symfony\Component\Process\Process;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class CameraController extends Controller
 {

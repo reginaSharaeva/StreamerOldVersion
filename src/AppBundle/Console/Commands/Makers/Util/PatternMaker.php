@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\HttpKernel\KernelInterface;
+use Symfony\Component\Console\Input\InputArgument;
 
 class PatternMaker
 {
@@ -18,8 +19,6 @@ class PatternMaker
     {
         $this->pathToApp = $pathToApp;
     }
-
-    public void set
 
 
     public function MakePatternByName(string $name, string $modelName)
@@ -69,7 +68,7 @@ class PatternMaker
         }
 
 
-        $application = new Application($kernel);
+        $application = new Application(new KernelInterface());
         $application->setAutoExit(false);
 
         $input = new ArrayInput(array(
