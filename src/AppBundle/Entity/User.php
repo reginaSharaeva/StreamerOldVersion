@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace AppBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User extends BaseUser
 {
-    /**
+    /*
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -21,6 +21,48 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
-        // your own logic
+    }
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $name;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Camera", mappedBy="user")
+     */
+    private $cameras;
+
+    /**
+     * Set name.
+     *
+     * @param string $name
+     *
+     * @return User
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return Collection|Cameras[]
+     */
+    public function getCameras()
+    {
+        return $this->cameras;
     }
 }
+

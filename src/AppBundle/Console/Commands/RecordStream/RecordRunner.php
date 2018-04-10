@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Console\Commands\RecordStream;
+namespace AppBundle\Console\Commands\RecordStream;
 
-use App\Camera;
+use AppBundle\Entity\Camera;
 //use Artisan;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Console\Command\Command;

@@ -1,8 +1,8 @@
 <?php
-namespace App\Console\Commands\Makers\Util;
+namespace AppBundle\Console\Commands\Makers\Util;
 
 
-use App\Console\Commands\Makers\Util\TemplateMaker;
+use AppBundle\Console\Commands\Makers\Util\TemplateMaker;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\BufferedOutput;
@@ -24,7 +24,7 @@ class PatternMaker
     public function MakePatternByName(string $name, string $modelName)
     {
 
-        $templateMaker = new TemplateMaker($name, $modelName, "App");
+        $templateMaker = new TemplateMaker($name, $modelName, "AppBundle");
 
         $interfaceFileName = $templateMaker->getInterfaceFileName();
         $classFileName = $templateMaker->getClassFileName();

@@ -2,6 +2,10 @@
 # https://symfony.com/doc/current/service_container.html
 parameters:
     #parameter_name: value
+    searcher.dropbox.key: klfvukh5sq3uqqc
+    searcher.dropbox.secret: nn34eu58yrtqg0t
+    searcher.dropbox.token: fpFM18e_BjAAAAAAAAAAKbvb4s8dptH14f9zqTy3PYFv9O9fMXz8uOeiGHGnqm59
+    searcher.dropbox.token_secret: fpFM18e_BjAAAAAAAAAAKbvb4s8dptH14f9zqTy3PYFv9O9fMXz8uOeiGHGnqm59
 
 services:
     # default configuration for services in *this* file
@@ -33,3 +37,12 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+
+    searcher.dropbox.oauth:
+        class: Dropbox_OAuth_Curl
+        arguments: [%searcher.dropbox.key%, %searcher.dropbox.secret%]
+        calls:
+            - [setToken, ["%searcher.dropbox.token%", "%searcher.dropbox.token_secret%"]]
+    searcher.dropbox.api:
+        class: Dropbox_API
+        arguments: ["@searcher.dropbox.oauth", "sandbox"]

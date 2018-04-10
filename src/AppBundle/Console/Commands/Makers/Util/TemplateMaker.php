@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands\Makers\Util;
+namespace AppBundle\Console\Commands\Makers\Util;
 
 
 class TemplateMaker

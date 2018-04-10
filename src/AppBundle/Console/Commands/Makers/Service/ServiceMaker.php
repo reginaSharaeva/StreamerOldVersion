@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Console\Commands\Makers\Service;
+namespace AppBundle\Console\Commands\Makers\Service;
 
-use App\Console\Commands\Makers\Util\PatternMaker;
+use AppBundle\Console\Commands\Makers\Util\PatternMaker;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

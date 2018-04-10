@@ -12,8 +12,8 @@
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "^2.5",
         "friendsofsymfony/user-bundle": "~2.0",
-        "graham-campbell/dropbox": "^3.4",
         "incenteev/composer-parameter-handler": "^2.0",
+        "knplabs/knp-gaufrette-bundle": "~0.5",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^3.0.2",
         "symfony/monolog-bundle": "^3.1.0",
@@ -37,7 +37,7 @@
             "app/AppCache.php"
         ],
         "psr-4": {
-            "App\\": "src/AppBundle"
+            "AppBundle\\": "src/AppBundle"
         }
         
     },
@@ -69,14 +69,10 @@
             "sudo php artisan key:generate"
         ],
         "post-install-cmd": [
-            "@symfony-scripts",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::postInstall",
-            "sudo php artisan optimize"
+            "@symfony-scripts"
         ],
         "post-update-cmd": [
-            "@symfony-scripts",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::postUpdate",
-            "sudo php artisan optimize"
+            "@symfony-scripts"
         ]
     },
     "config": {

@@ -31,5 +31,3 @@ $kernel->terminate($request, $response);
 // http://elbib.elpub.ru/jour/article/view/15
 
 
-// Вы подключены к базе данных "postgres" как пользователь "postgres" через сокет в "/var/run/postgresql", порт "5432".
-

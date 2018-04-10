@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands\RecordStream;
+namespace AppBundle\Console\Commands\RecordStream;
 
 use DB;
 use Symfony\Component\Console\Command\Command;
@@ -12,7 +12,7 @@ use Config;
 use Dropbox\Client;
 use Dropbox\WriteMode;
 use File;
-use App\File as DbFile;
+use AppBundle\Entity\File as DbFile;
 
 class UploadFileToDropBox extends Command
 {
