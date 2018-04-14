@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace AppBundle\Controllers;
 
 use App\Camera;
 use App\Service\CameraService;

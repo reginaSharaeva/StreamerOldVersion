@@ -20,7 +20,7 @@ services:
 
     # makes classes in src/AppBundle available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
-    App\:
+    AppBundle\:
         resource: '../../src/AppBundle/*'
         # you can exclude directories or files
         # but if a service is unused, it's removed anyway
@@ -28,7 +28,7 @@ services:
 
     # controllers are imported separately to make sure they're public
     # and have a tag that allows actions to type-hint services
-    App\Controller\:
+    AppBundle\Controller\:
         resource: '../../src/AppBundle/Controller'
         public: true
         tags: ['controller.service_arguments']
@@ -46,3 +46,14 @@ services:
     searcher.dropbox.api:
         class: Dropbox_API
         arguments: ["@searcher.dropbox.oauth", "sandbox"]
+
+    service.camera:
+        class: AppBundle\Service\CameraServiceImpl    
+
+    controller.camera:
+        class: AppBundle\Controller\CameraController
+        arguments: ["@service.camera"]    
+
+
+
+
