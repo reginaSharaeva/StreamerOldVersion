@@ -1,6 +1,6 @@
 <?php
-namespace App\Service;
-use App\User;
+namespace AppBundle\Service;
+use AppBundle\Entity\User;
 
 interface UserService
 {

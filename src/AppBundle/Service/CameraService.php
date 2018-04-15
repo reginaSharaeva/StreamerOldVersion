@@ -1,7 +1,7 @@
 <?php
-namespace App\Service;
+namespace AppBundle\Service;
 
-use App\Camera;
+use AppBundle\Entity\Camera;
 
 interface CameraService
 {

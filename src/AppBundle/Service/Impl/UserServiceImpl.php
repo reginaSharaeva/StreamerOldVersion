@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Service\Impl;
+namespace AppBundle\Service\Impl;
 
-use App\User;
-use App\Service\UserService;
+use AppBundle\Entity\User;
+use AppBundle\Service\UserService;
 use Auth;
 class UserServiceImpl implements UserService
 {

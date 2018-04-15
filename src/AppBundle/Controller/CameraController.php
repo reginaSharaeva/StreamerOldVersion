@@ -1,9 +1,9 @@
 <?php
 
-namespace AppBundle\Controllers;
+namespace AppBundle\Controller;
 
-use App\Camera;
-use App\Service\CameraService;
+use AppBundle\Entity\Camera;
+use AppBundle\Service\CameraService;
 use Auth;
 use Symfony\Component\Process\Process;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;

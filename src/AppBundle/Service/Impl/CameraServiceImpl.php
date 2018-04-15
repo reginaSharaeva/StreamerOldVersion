@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Service\Impl;
+namespace AppBundle\Service\Impl;
 
-use App\Camera;
-use App\Service\CameraService;
+use AppBundle\Entity\Camera;
+use AppBundle\Service\CameraService;
 use Artisan;
 use Auth;
 use PhpParser\Node\Stmt\Throw_;
